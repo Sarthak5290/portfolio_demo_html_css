@@ -1,0 +1,114 @@
+/* Global Styles */
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.main-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 100px 0 0 120px; /* Top and left padding at 28px */
+}
+
+/* === POETRY SECTION === */
+.poetry-section {
+  color: #737373;
+  line-height: 0.2;
+  letter-spacing: 0;
+  margin-bottom: 40px;
+}
+
+.poetry-intro {
+  font-weight: 100;
+  font-style: italic;
+  font-size: 28px;
+  margin: 0 0 25px 0;
+  line-height: 0.9;
+}
+
+.poetry-title {
+  font-weight: 400;
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  line-height: 0.9;
+}
+
+.poetry-subtitle {
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 10px 0;
+  line-height: 0.9;
+}
+
+.poetry-light {
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poetry-medium {
+  font-weight: 400;
+}
+
+.poetry-line {
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 10px 0;
+  line-height: 0.9;
+}
+
+/* === BIO SECTION === */
+.bio-section {
+  font-size: 15px;
+  font-weight: 400;
+  color: #b5b5b5;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.bio-name {
+  color: #737373;
+  font-weight: 600;
+}
+
+/* === CTA SECTION === */
+.cta-section {
+  font-size: 15px;
+  font-weight: 400;
+  color: #b5b5b5;
+  line-height: 1.4;
+}
+
+.cta-link {
+  color: #4a90e2;
+  text-decoration: none;
+  margin: 0 2px;
+  transition: color 0.3s;
+}
+
+.cta-link:hover {
+  text-decoration: underline;
+  color: #2a70c2;
+}
+
+/* === Responsive === */
+@media (max-width: 900px) {
+  .main-container {
+    padding: 20px 0 0 20px;
+  }
+
+  .poetry-title {
+    font-size: 24px;
+  }
+
+  .poetry-subtitle,
+  .poetry-line {
+    font-size: 22px;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let's Rendezvous | The View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        position: relative;
+      }
+
+      .close-button {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+      }
+
+      .close-button:hover {
+        opacity: 1;
+      }
+
+      .container {
+        max-width: 1200px;
+        width: 100%;
+        text-align: left;
+        padding: 2rem;
+        position: relative;
+        left: -20px;
+        top: 50px;
+        margin-bottom: 120px;
+      }
+
+      .title {
+        font-family: "Inter", sans-serif;
+        font-weight: 200;
+        font-size: 175px;
+        line-height: 150px;
+        letter-spacing: 0%;
+        color: #edcfe5;
+        margin-bottom: 2rem;
+        text-align: left;
+        margin-top: 20px; /* Move title slightly down */
+      }
+
+      .subtitle {
+        font-family: "Inter", sans-serif;
+        font-weight: 200;
+        font-size: 30px;
+        line-height: 150px;
+        letter-spacing: 1px;
+        color: #141414;
+        margin-left: 20px;
+        margin-top: -34px;
+      }
+
+      .email-form {
+        display: flex;
+      }
+
+      .email-input {
+        width: 800px;
+        height: 68px;
+        border: none;
+        background-color: #fff3da;
+        border-radius: 34px;
+        font-family: "Inter", sans-serif;
+        font-weight: 200;
+        font-size: 20px;
+        letter-spacing: 0%;
+        transition: background-color 0.3s ease;
+        padding: 0 25px; /* Add some padding for text */
+      }
+
+      .email-input::placeholder {
+        color: #7c7c7c;
+        font-family: "Inter", sans-serif;
+        font-weight: 200;
+        font-size: 20px;
+        letter-spacing: 0%;
+      }
+
+      .email-input:focus {
+        outline: none;
+        background-color: #ffe8d6;
+      }
+
+      .send-button {
+        position: absolute;
+        top: 503px;
+        left: 610px;
+        width: 219px;
+        height: 62px;
+        border: none;
+        background-color: #edcfe5;
+        color: white;
+        border-radius: 34px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .send-button:hover {
+        background-color: #ffb6c1;
+      }
+
+      .footer {
+        text-align: left;
+        margin-top: 2rem;
+        margin-bottom: 20px;
+        position: relative;
+        top: 30px;
+      }
+
+      .footer-title {
+        position: absolute;
+        bottom: 0px;
+        left: 920px;
+        width: 124px;
+        height: 34px;
+        color: #737373;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Inter", sans-serif;
+        font-weight: 100;
+        font-size: 28px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        border-radius: 4px;
+        font-style: italic;
+      }
+
+      .footer-title span {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        margin-left: 8px;
+        font-style: normal;
+      }
+
+      .footer-subtitle {
+        position: absolute;
+        left: 915px;
+        width: 185px;
+        height: 46px;
+        color: #737373;
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 125%;
+        letter-spacing: 0%;
+        padding: 8px;
+        border-radius: 4px;
+        text-align: left;
+      }
+
+      .cross-icon {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        z-index: 5;
+      }
+
+      .cross-css {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .cross-css::before,
+      .cross-css::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 2px;
+        background-color: #979797;
+        transform-origin: center;
+      }
+
+      .cross-css::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      .cross-css::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+      .bar-dot-wrapper {
+        position: relative;
+        margin-top: -68px;
+        margin-left: 925px;
+      }
+
+      .bar {
+        background: #edcfe5;
+        width: 111px;
+        height: 8px;
+        border-radius: 4px;
+        box-shadow: 0px 4px 4px 0px #0000001a;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        background-color: #ffe19f;
+        border-radius: 4px;
+        position: absolute;
+        left: 120px; /* Slightly to the right of the bar */
+        top: 0;
+        box-shadow: 0px 4px 4px 0px #0000001a;
+      }
+      .download-button {
+        display: none;
+      }
+
+      .arrow-back,
+      .arrow-forward {
+        display: none;
+      }
+
+      @media (max-width: 431px) and (max-height: 933px) {
+        body {
+          padding: 1rem;
+          align-items: flex-start;
+        }
+
+        .container {
+          left: 0;
+          top: 20px;
+          padding: 1rem;
+          margin-bottom: 80px;
+        }
+
+        .title {
+          font-size: 64px;
+          line-height: 72px;
+          margin-bottom: 1rem;
+          margin-top: 0;
+          margin-left: 10px;
+        }
+
+        .subtitle {
+          font-weight: 200;
+          font-size: 35px;
+          line-height: 40px;
+          margin-top: 20px;
+          margin-left: 10px;
+          color: #737373;
+          width: 304px;
+        }
+
+        .email-form {
+          flex-direction: column;
+          gap: 12px;
+          margin-top: 40px;
+          margin-left: 10px;
+        }
+
+        .email-input {
+          width: 100%;
+          height: 65px;
+          font-size: 20px;
+          padding: 0 20px;
+          text-align: left;
+        }
+
+        .send-button {
+          position: relative;
+          text-align: left;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 65px;
+          font-size: 20px;
+          padding-left: 22px;
+          margin-top: 15px;
+        }
+
+        .footer {
+          top: 0;
+          margin-top: 1rem;
+        }
+
+        .footer-title {
+          position: relative;
+          bottom: auto;
+          left: 0;
+          font-size: 25px;
+          margin-bottom: 8px;
+        }
+
+        .footer-title span {
+          font-size: 25px;
+          margin-left: 4px;
+        }
+
+        .footer-subtitle {
+          position: relative;
+          left: 0;
+          font-size: 20px;
+          width: 180px;
+          margin-left: 2px;
+        }
+
+        .bar-dot-wrapper {
+          margin-left: 10px;
+          margin-top: 8rem;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .bar {
+          width: 80px;
+          height: 6px;
+        }
+
+        .dot {
+          width: 6px;
+          height: 6px;
+          left: auto;
+          position: relative;
+        }
+
+        .cross-icon {
+          width: 32px;
+          height: 32px;
+          top: 20px;
+          left: 20px;
+        }
+
+        .download-button {
+          display: block;
+          position: fixed;
+          z-index: 15;
+          top: 854px;
+          left: 188px;
+          width: 210px;
+          height: 43px;
+          border: none;
+          border-radius: 20px;
+          background-color: #1b1414;
+          font-family: "Inter", sans-serif;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 100%;
+          letter-spacing: 0;
+          color: #ffffff;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.3s ease;
+        }
+        .download-button:hover {
+          background-color: #393030;
+        }
+
+        .arrow-back,
+        .arrow-forward {
+          position: fixed;
+          display: block;
+          width: 45px;
+          height: 45px;
+          top: 854px;
+          background-color: #d9d9d9;
+          border: none;
+          border-radius: 32px;
+          font-size: 24px;
+          line-height: 1;
+          color: #395039;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+        }
+        .arrow-back img,
+        .arrow-forward img {
+          width: 20px; /* adjust icon size as needed */
+          height: auto;
+          padding-top: 5px;
+          padding-right: 2px;
+        }
+
+        /* back arrow: flip the icon */
+        .arrow-forward img {
+          padding-bottom: 10px;
+
+          margin-left: 3px;
+          transform: rotate(180deg);
+        }
+
+        /* horizontal positions */
+        .arrow-back {
+          left: 70px;
+        }
+        .arrow-forward {
+          left: 130px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cross-icon">
+      <div class="cross-css"></div>
+    </div>
+
+    <div class="container">
+      <h1 class="title">let&#8217;s <br />rendezvous</h1>
+
+      <p class="subtitle">drop in your email ID and I will get back to you</p>
+
+      <form class="email-form">
+        <input
+          type="email"
+          class="email-input"
+          placeholder="type your email ID here"
+          required
+        />
+        <button type="submit" class="send-button">send</button>
+      </form>
+
+      <div class="bar-dot-wrapper">
+        <div class="bar"></div>
+        <div class="dot"></div>
+      </div>
+
+      <div class="footer">
+        <h2 class="footer-title">the <span>spark</span></h2>
+        <p class="footer-subtitle">let the designer get to know you</p>
+      </div>
+    </div>
+    <button class="arrow-back">
+      <img src="../assets/images/arrow.png" alt="back arrow" />
+    </button>
+    <button class="arrow-forward">
+      <img src="../assets/images/arrow.png" alt="forward arrow" />
+    </button>
+    <button class="download-button">download resume</button>
+  </body>
+</html>

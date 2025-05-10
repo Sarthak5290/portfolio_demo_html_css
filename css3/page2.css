@@ -1,0 +1,441 @@
+/* 
+===============================
+TABLE OF CONTENTS:
+1. Reset Styles
+2. Base Layout
+3. Typography
+4. Animations
+5. Media Queries
+===============================
+*/
+
+/* 1. RESET STYLES
+=============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  overflow: hidden; /* Prevents both vertical and horizontal scroll */
+}
+
+.container {
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: #eaffe5;
+  color: #4a634a;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+strong {
+  font-weight: 500;
+}
+
+/* 2. BASE LAYOUT
+=============================== */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+}
+
+.close-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  background: transparent;
+}
+
+/* Make the X thinner */
+.close-button svg path {
+  stroke-width: 0.3; /* Reduced from 1.5 to make it thinner */
+  transition: stroke 0.3s ease;
+}
+
+.close-button:hover {
+  opacity: 1;
+}
+
+.close-button:hover svg path {
+  stroke: #395039;
+}
+
+.close-button:hover {
+  opacity: 1;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  gap: 2rem;
+  height: 100%;
+  padding-top: 2rem;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.section-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 8rem;
+  margin-left: 96px;
+  margin-top: 300px;
+}
+
+.section-center {
+  padding-top: 4rem;
+}
+
+.section-right {
+  padding-top: 4rem;
+}
+
+.brand {
+  margin-bottom: 2rem;
+}
+
+.description {
+  margin-top: -65px;
+  margin-left: 210px;
+}
+
+.experience {
+  max-width: 36rem;
+}
+
+/* 3. TYPOGRAPHY
+=============================== */
+/* Headings */
+.title {
+  font-family: "Inter", sans-serif;
+  font-size: 100px;
+  line-height: 100%;
+  font-weight: lighter;
+  font-style: italic;
+  color: #737373;
+  margin-bottom: 0.5rem;
+  letter-spacing: -4%;
+  margin-top: 50px;
+  margin-left: -60px;
+  line-height: 75%;
+}
+
+.subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: 0;
+  font-weight: 400; /* This applies to "sense" */
+}
+
+.subtitle .highlight {
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #737373;
+}
+
+.highlight {
+  color: #4a634a;
+  font-weight: 400;
+}
+
+.subheading {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+  font-style: italic;
+  color: #737373;
+  letter-spacing: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Paragraphs */
+.paragraph {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0;
+  color: #737373;
+  margin-bottom: 1.5rem;
+  max-width: 320px;
+}
+.paragraph2 {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0;
+  color: #737373;
+  margin-bottom: 1.5rem;
+  max-width: 380px;
+}
+
+.tagline {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #737373;
+  margin-top: 12px;
+}
+
+/* 4. ANIMATIONS
+=============================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Hover effect for paragraphs */
+.paragraph {
+  transition: color 0.3s ease;
+}
+
+.paragraph:hover {
+  color: #395039;
+}
+
+/* Button hover effect */
+.close-button svg path {
+  transition: stroke 0.3s ease;
+}
+
+.close-button:hover svg path {
+  stroke: #395039;
+}
+
+/* Link hover animation */
+a {
+  color: #5a7a5a;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #395039;
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: #395039;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Brand line */
+.brand-line {
+  width: 111px;
+  height: 8px;
+  background-color: white;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  box-shadow: 0px 4px 4px 0px #0000001a;
+}
+
+/* 5. MEDIA QUERIES
+=============================== */
+@media (max-width: 1200px) {
+  .content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .section-right {
+    padding-top: 10rem;
+  }
+
+  .title {
+    font-size: 80px;
+  }
+
+  .subtitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "left center"
+      "right right";
+  }
+
+  .section-left {
+    grid-area: left;
+    padding-top: 4rem;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .section-center {
+    grid-area: center;
+  }
+
+  .section-right {
+    grid-area: right;
+    padding-top: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html,
+  body,
+  .container {
+    height: auto;
+    overflow: auto;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "center"
+      "left"
+      "right";
+    gap: 1rem;
+  }
+
+  .section-left {
+    padding-top: 2rem;
+  }
+
+  .section-center {
+    padding-top: 2rem;
+  }
+
+  .section-right {
+    padding-top: 2rem;
+  }
+
+  .close-button {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.75rem;
+  }
+
+  .subheading {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .content {
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .paragraph {
+    font-size: 0.9375rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+}
+
+.cross-icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.cross-css {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cross-css::before,
+.cross-css::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #979797;
+  transform-origin: center;
+}
+
+.cross-css::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cross-css::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}

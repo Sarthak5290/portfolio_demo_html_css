@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saransh - Digital Designer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global Styles */
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        color: #333;
+      }
+
+      .main-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 100px 0 0 120px;
+      }
+
+      /* === POETRY SECTION === */
+      .poetry-section {
+        color: #737373;
+        line-height: 0.2;
+        letter-spacing: 0;
+        margin-bottom: 40px;
+      }
+
+      .poetry-intro {
+        font-weight: 100;
+        font-style: italic;
+        font-size: 28px;
+        margin: 0 0 25px 0;
+        line-height: 0.9;
+      }
+
+      .poetry-title {
+        font-weight: 400;
+        font-size: 28px;
+        margin: 0 0 10px 0;
+        line-height: 0.9;
+      }
+
+      .poetry-title span span {
+        font-weight: 100;
+        font-style: italic;
+      }
+
+      .poetry-subtitle {
+        font-size: 28px;
+        font-weight: 400;
+        margin: 0 0 10px 0;
+        line-height: 0.9;
+      }
+      .poetry-subtitle span span {
+        font-weight: 100;
+        font-style: italic;
+      }
+
+      .poetry-light {
+        font-weight: 100;
+        font-style: italic;
+      }
+
+      .poetry-medium {
+        font-weight: 400;
+      }
+
+      .poetry-line {
+        font-size: 28px;
+        font-weight: 400;
+        margin: 0 0 10px 0;
+        line-height: 0.9;
+      }
+
+      /* === BIO SECTION === */
+      .bio-section {
+        font-size: 15px;
+        font-weight: 400;
+        color: #b5b5b5;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+
+      .bio-name {
+        color: #737373;
+        font-weight: 600;
+      }
+
+      /* === CTA SECTION === */
+      .cta-section {
+        font-size: 15px;
+        font-weight: 400;
+        color: #b5b5b5;
+        line-height: 1.4;
+      }
+
+      .cta-link {
+        color: #4a90e2;
+        text-decoration: none;
+        margin: 0 2px;
+        transition: color 0.3s;
+      }
+
+      .cta-link:hover {
+        text-decoration: underline;
+        color: #2a70c2;
+      }
+
+      .desktop-only {
+        display: block;
+      }
+      .mobile-only {
+        display: none;
+      }
+
+      .download-button {
+        display: none;
+      }
+
+      .arrow-back,
+      .arrow-forward {
+        display: none;
+      }
+
+      @media (max-width: 431px) and (max-height: 933px) {
+        .main-container {
+          padding: 60px 20px 0 50px;
+        }
+
+        .poetry-intro,
+        .poetry-title,
+        .poetry-subtitle,
+        .poetry-line {
+          font-size: 32px;
+          line-height: 1.4;
+        }
+
+        .bio-section,
+        .cta-section {
+          font-size: 17px;
+          line-height: 1.5;
+        }
+
+        .nowrap {
+          white-space: normal;
+        }
+
+        .line-mobile {
+          display: block;
+        }
+
+        .desktop-only {
+          display: none;
+        }
+        .mobile-only {
+          display: block;
+        }
+
+        .download-button {
+          display: block;
+          position: fixed;
+          z-index: 15;
+          top: 854px;
+          left: 188px;
+          width: 210px;
+          height: 43px;
+          border: none;
+          border-radius: 20px;
+          background-color: #1b1414;
+          font-family: "Inter", sans-serif;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 100%;
+          letter-spacing: 0;
+          color: #ffffff;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.3s ease;
+        }
+        .download-button:hover {
+          background-color: #393030;
+        }
+
+        .arrow-back,
+        .arrow-forward {
+          position: fixed;
+          display: block;
+          width: 45px;
+          height: 45px;
+          top: 854px;
+          background-color: #d9d9d9;
+          border: none;
+          border-radius: 32px;
+          font-size: 24px;
+          line-height: 1;
+          color: #395039;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+        }
+        .arrow-back img,
+        .arrow-forward img {
+          width: 20px; /* adjust icon size as needed */
+          height: auto;
+          padding-top: 5px;
+          padding-right: 2px;
+        }
+
+        /* back arrow: flip the icon */
+        .arrow-forward img {
+          padding-bottom: 10px;
+
+          margin-left: 3px;
+          transform: rotate(180deg);
+        }
+
+        /* horizontal positions */
+        .arrow-back {
+          left: 70px;
+        }
+        .arrow-forward {
+          left: 130px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- Poetic Introduction -->
+      <div class="poetry-section">
+        <p class="poetry-intro">the</p>
+        <h1 class="poetry-title">
+          <span class="line-mobile">view of the</span>
+          <span class="line-mobile">priceless express</span>
+        </h1>
+        <p class="poetry-subtitle">
+          <span class="line-mobile">from <span>the</span> sparkling aura</span>
+          <span class="line-mobile">of <span>everything</span> </span>
+        </p>
+        <p class="poetry-line">
+          <span class="line-mobile">to nothing and beyond</span>
+          <span class="line-mobile">belongingness</span>
+        </p>
+        <p class="poetry-line">
+          <span class="line-mobile">where absurdity</span>
+          <span class="line-mobile"
+            >makes no <span class="poetry-light">un</span>sense</span
+          >
+        </p>
+      </div>
+
+      <!-- Bio Section -->
+      <div class="bio-section">
+        <!-- Desktop -->
+        <p class="bio-text desktop-only">
+          hey, my name is <span class="bio-name">Saransh</span>, and I have been
+          designing<br />
+          for the digital medium since 2010.
+        </p>
+        <!-- Mobile -->
+        <p class="bio-text mobile-only">
+          hey, my name is <span class="bio-name">Saransh</span>, and <br />
+          I have been designing for the digital medium <br />
+          since 2010.
+        </p>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <!-- Desktop -->
+        <p class="cta-text desktop-only">
+          You may <a href="#" class="cta-link">click here</a> to download my
+          resume or
+          <br />
+          please <span class="nowrap">show some love by going</span>
+          <br />
+          through my website
+          <span class="nowrap"
+            >which I wholeheartedly conceptualized &amp; designed.</span
+          >
+        </p>
+        <!-- Mobile -->
+        <p class="cta-text mobile-only">
+          You may download my resume or <br />
+          please show some love by going through <br />
+          my website which I wholeheartedly <br />
+          conceptualized &amp; designed.
+        </p>
+      </div>
+    </div>
+
+    <button class="arrow-back">
+      <img src="../assets/images/arrow.png" alt="back arrow" />
+    </button>
+    <button class="arrow-forward">
+      <img src="../assets/images/arrow.png" alt="forward arrow" />
+    </button>
+    <button class="download-button">download resume</button>
+  </body>
+</html>

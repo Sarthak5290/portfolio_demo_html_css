@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Designer Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of a designer focusing on UI/UX, graphic design, identity, and packaging design."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: #596253;
+        background-color: white;
+        overflow-x: hidden;
+      }
+
+      /* Main container */
+      .portfolio-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Services section */
+      .services {
+        position: relative;
+        min-height: 50vh;
+        z-index: 1;
+        margin-left: 120px;
+      }
+
+      .service-item.secondary {
+        margin-top: 40px;
+        white-space: nowrap;
+      }
+
+      .services-list {
+        margin-left: 1rem;
+        margin-top: 4rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .service-item {
+        font-size: 2.5rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        color: #888;
+        position: relative;
+        opacity: 0.6;
+        transition: color 0.3s, opacity 0.3s;
+        cursor: pointer;
+      }
+
+      /* Apply Inter 300, 55px/55px, 0% letter-spacing, #BFBFBF to those three items */
+      .service-item.secondary,
+      .service-item.tertiary,
+      .service-item.quaternary {
+        font-family: "Inter", sans-serif;
+        font-weight: 300;
+        font-size: 55px;
+        line-height: 70px;
+        letter-spacing: 0%;
+        color: #bfbfbf;
+        opacity: 1; /* if you want them fully opaque by default */
+      }
+
+      /* Modified style for the service items based on specifications */
+      .service-item {
+        font-family: "Inter", sans-serif;
+        font-weight: 300;
+        font-size: 55px;
+        line-height: 55px;
+        letter-spacing: 0%;
+        color: #737373;
+      }
+
+      .service-item:hover {
+        opacity: 1;
+      }
+
+      .primary {
+        color: #555;
+        opacity: 1;
+      }
+
+      .dot {
+        position: absolute;
+        top: 520px;
+        left: 441px;
+        width: 8px;
+        height: 8px;
+        background-color: #eaffe5;
+        border-radius: 4px;
+        box-shadow: 0px 4px 4px 0px #0000001a;
+        z-index: 3;
+      }
+
+      /* Ellipses with exact positioning */
+      .ellipse-1 {
+        position: absolute;
+        width: 482px;
+        height: 482px;
+        top: -60px;
+        left: 150px;
+        border-radius: 50%;
+        background-color: #ffcdcd;
+        z-index: -1;
+      }
+
+      .ellipse-2 {
+        position: absolute;
+        width: 482px;
+        height: 482px;
+        top: -60px;
+        left: 700px;
+        border-radius: 50%;
+        background-color: #fff3cd;
+        z-index: -1;
+      }
+
+      .ellipse-3 {
+        position: absolute;
+        width: 482px;
+        height: 482px;
+        top: 470px;
+        left: 700px;
+        border-radius: 50%;
+        background-color: #e4ffcd;
+        z-index: -1;
+      }
+
+      /* The view section */
+      .view-section {
+        z-index: 2;
+        margin-left: 320px;
+        padding-top: 80px;
+      }
+
+      /* “the view” label */
+      .view-label {
+        font-family: "Inter", sans-serif;
+        font-weight: 100;
+        font-style: italic;
+        font-size: 38px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #737373;
+      }
+
+      /* the <span> “view” */
+      .view-label span {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 38px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #737373;
+      }
+
+      .view-description {
+        font-family: "Inter", sans-serif;
+        font-weight: 100;
+        font-size: 22px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #737373;
+        margin-top: 8px;
+      }
+
+      /* Description section */
+      .description {
+        position: relative;
+        z-index: 1;
+        margin-left: 70px;
+        margin-top: -20px;
+        max-width: 400px;
+      }
+
+      .description-text {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: 2rem;
+      }
+
+      .description-text p {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 150%;
+        letter-spacing: 0%;
+        color: #737373;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Cursor pointer */
+      .cursor-pointer {
+        position: absolute;
+        top: 190px; /* Adjust as needed */
+        left: -10px; /* Adjust as needed */
+        z-index: 3;
+      }
+
+      .pointer-image {
+        width: 350px; /* Scale to desired size */
+        height: auto;
+      }
+
+
+      .download-button {
+        display: none;
+      }
+
+      .arrow-back,
+      .arrow-forward {
+        display: none;
+      }
+
+      /* Responsive design */
+      @media (min-width: 768px) {
+        .portfolio-container {
+          flex-direction: row;
+        }
+
+        .services {
+          width: 50%;
+          min-height: 100vh;
+        }
+
+        .description {
+          width: 50%;
+          padding-top: 8rem;
+          min-height: 100vh;
+        }
+
+        .service-item {
+          font-size: 55px; /* Maintain 55px even at this breakpoint */
+        }
+
+        .view-section {
+          left: 30%;
+          bottom: 15%;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .services-list {
+          margin-left: 4rem;
+          margin-top: 8rem;
+        }
+
+        .service-item {
+          font-size: 55px; /* Ensure consistent 55px size */
+        }
+
+        .description-text {
+          margin-right: 4rem;
+        }
+      }
+
+      @media (max-width: 431px) and (max-height: 933px) {
+        .services {
+          margin-left: 20px;
+        }
+
+        .service-item {
+          font-size: 49px;
+          line-height: 54px;
+          width: 272px;
+          margin-left: 26px;
+        }
+
+        .service-item.secondary,
+        .service-item.tertiary,
+        .service-item.quaternary {
+          display: none;
+        }
+
+        .view-section {
+          position: absolute;
+          top: 670px;
+          left: -281px;
+        }
+
+        .view-label,
+        .view-label span {
+          font-size: 29px;
+        }
+
+        .view-description {
+          font-size: 16px;
+          margin-top: 6px;
+          font-weight: 400;
+        }
+
+        .description {
+          margin-left: 60px;
+          margin-top: -185px;
+          max-width: 78%;
+        }
+
+        .description-text p {
+          font-size: 0.95rem;
+          line-height: 123%;
+          margin-bottom: 1rem;
+        }
+
+        .ellipse-1 {
+          position: absolute;
+          width: 482px;
+          height: 482px;
+          top: -283px;
+          left: 67px;
+        }
+
+        .ellipse-2 {
+          position: absolute;
+          width: 482px;
+          height: 482px;
+          top: 240px;
+          left: 67px;
+        }
+
+        .ellipse-3 {
+          position: absolute;
+          width: 482px;
+          height: 482px;
+          top: 782px;
+          left: 67px;
+        }
+
+        .cursor-pointer {
+          display: none;
+        }
+
+        .cross-icon {
+          width: 60px;
+          height: 60px;
+          top: 20px;
+          right: 20px;
+        }
+
+        .cross-css {
+          position: relative;
+          width: 57%;
+          height: 63%;
+          left: -335px;
+        }
+
+        .dot {
+          top: 708px;
+          left: 59px;
+        }
+
+        .download-button {
+          display: block;
+          position: fixed;
+          z-index: 15;
+          top: 854px;
+          left: 188px;
+          width: 210px;
+          height: 43px;
+          border: none;
+          border-radius: 20px;
+          background-color: #1b1414;
+          font-family: "Inter", sans-serif;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 100%;
+          letter-spacing: 0;
+          color: #ffffff;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.3s ease;
+        }
+        .download-button:hover {
+          background-color: #393030;
+        }
+
+        .arrow-back,
+        .arrow-forward {
+          position: fixed;
+          display: block;
+          width: 45px;
+          height: 45px;
+          top: 854px;
+          background-color: #d9d9d9;
+          border: none;
+          border-radius: 32px;
+          font-size: 24px;
+          line-height: 1;
+          color: #395039;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+        }
+        .arrow-back img,
+        .arrow-forward img {
+          width: 20px; /* adjust icon size as needed */
+          height: auto;
+          padding-top: 5px;
+          padding-right: 2px;
+        }
+
+        /* back arrow: flip the icon */
+        .arrow-forward img {
+          padding-bottom: 10px;
+
+          margin-left: 3px;
+          transform: rotate(180deg);
+        }
+
+        /* horizontal positions */
+        .arrow-back {
+          left: 70px;
+        }
+        .arrow-forward {
+          left: 130px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="dot"></div>
+
+      <main class="portfolio-container">
+        <!-- Ellipses with exact positioning -->
+        <div class="ellipse-1"></div>
+        <div class="ellipse-2"></div>
+        <div class="ellipse-3"></div>
+
+        <!-- Left section with services -->
+        <section class="services">
+          <div class="services-list">
+            <h2 class="service-item primary">web design & UI/UX</h2>
+            <h2 class="service-item secondary">
+              graphic design & illustrations
+            </h2>
+            <h2 class="service-item tertiary">brand identity</h2>
+            <h2 class="service-item quaternary">print & packaging design</h2>
+          </div>
+
+          <div class="cursor-pointer">
+            <img
+              src="../assets/images/cursor-arrow.png"
+              alt="Cursor pointer"
+              class="pointer-image"
+            />
+          </div>
+
+          <div class="view-section">
+            <p class="view-label">the <span>view</span></p>
+            <p class="view-description">
+              what services<br />
+              can the designer<br />
+              offer
+            </p>
+          </div>
+        </section>
+
+        <!-- Right section with description -->
+        <section class="description">
+          <div class="description-text">
+            <p>
+              A few years before UI/UX became a whole different way of working
+              in digital media, I was introduced to designing micro sites for
+              campaigns for top tier brands like Bacardi and HP.
+            </p>
+
+            <p>
+              And that's where I understood interaction design and today, after
+              15 years of consistently working and moving with various trends, I
+              am more than confident about the fact that a cool interactive and
+              a creative journey like going through a beautiful visual animated
+              story can not only make your audience know you better, but they
+              may emote and connect really well with your brand too.
+            </p>
+
+            <p>
+              And I will be more than happy,<br />
+              to be at your service to achieve the same<br />
+              thing for your brand.
+            </p>
+          </div>
+        </section>
+      </main>
+      <button class="arrow-back">
+        <img src="../assets/images/arrow.png" alt="back arrow" />
+      </button>
+      <button class="arrow-forward">
+        <img src="../assets/images/arrow.png" alt="forward arrow" />
+      </button>
+      <button class="download-button">download resume</button>
+    </div>
+
+    <script>
+      // Simple script to add interactivity
+      document.addEventListener("DOMContentLoaded", function () {
+        const serviceItems = document.querySelectorAll(".service-item");
+
+        serviceItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            // Remove primary class from all items
+            serviceItems.forEach((el) => el.classList.remove("primary"));
+
+            // Add primary class to clicked item
+            this.classList.add("primary");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

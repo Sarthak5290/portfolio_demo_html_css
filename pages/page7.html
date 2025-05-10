@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not Available to Work | The View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #fff3e5;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        position: relative;
+      }
+
+      .cross-icon {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        z-index: 5;
+      }
+
+      .cross-css {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .cross-css::before,
+      .cross-css::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 2px;
+        background-color: #979797;
+        transform-origin: center;
+      }
+
+      .cross-css::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      .cross-css::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+      .container {
+        max-width: 1200px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .title-apology {
+        position: absolute;
+        top: 70px;
+        left: 125px;
+        font-family: "Inter", sans-serif;
+        font-weight: 200;
+        font-size: 35px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #737373;
+      }
+
+      .title-available {
+        position: absolute;
+        top: 113px;
+        left: 35px;
+        width: 1400px;
+        height: 242px;
+        font-size: 220px;
+        font-weight: 200;
+        font-family: "Inter", sans-serif;
+        color: #ee7c71;
+        line-height: 1;
+      }
+
+      .title-towork {
+        position: absolute;
+        top: 300px;
+        left: -20px;
+        width: 1400px;
+        height: 242px;
+        font-size: 220px;
+        font-weight: 200;
+        font-family: "Inter", sans-serif;
+        color: #737373;
+        line-height: 1;
+      }
+
+      .braces {
+        font-weight: 100;
+      }
+
+      .brace-left,
+      .brace-right {
+        display: inline-block;
+      }
+
+      .brace-left {
+        margin-right: 100px; /* Adds space between { and } */
+      }
+
+      .title-brief {
+        position: absolute;
+        top: 550px;
+        left: 400px;
+        font-family: "Inter", sans-serif;
+        font-weight: 200;
+        font-size: 35px;
+        line-height: 100%;
+        letter-spacing: 2%;
+        color: #737373;
+      }
+
+      .title-time {
+        position: absolute;
+        width: 220px;
+        height: 29px;
+        top: 387px;
+        left: 1015px;
+        text-align: left;
+        font-family: "Inter", sans-serif;
+        font-weight: 300;
+        font-size: 25px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #737373;
+      }
+      .cta-button {
+        position: absolute;
+        bottom: 5px;
+        left: 420px;
+        display: inline-block;
+        padding: 1rem 3rem;
+        background-color: #a0e391;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 2rem;
+        transition: background-color 0.3s ease;
+        z-index: 2;
+      }
+
+      .cta-button:hover {
+        background-color: #95d595;
+      }
+
+      .bar {
+        position: absolute;
+        bottom: 57px;
+        left: 750px;
+        width: 111px;
+        height: 8px;
+        border-radius: 4px;
+        background-color: #ee7c71;
+        box-shadow: 0px 4px 4px 0px #0000001a;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        background: #fff3e5;
+        box-shadow: 0px 4px 4px 0px #0000001a;
+        border-radius: 50%;
+        position: absolute;
+        top: 0px;
+        left: calc(50% - 44px);
+      }
+
+      .footer-text {
+        position: absolute;
+        bottom: 0px;
+        left: 748px;
+        font-size: 28px;
+        color: #737373;
+        text-align: center;
+        line-height: 100%;
+        letter-spacing: 0%;
+      }
+
+      .footer-left {
+        font-family: "Inter", sans-serif;
+        font-weight: 100;
+        font-style: italic;
+      }
+
+      .footer-right {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+      }
+
+      .description {
+        position: absolute;
+        bottom: -90px;
+        left: 748px;
+        text-align: left;
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        color: #737373;
+      }
+      .mobile-break {
+        display: none;
+      }
+
+      .download-button {
+        display: none;
+      }
+
+      .arrow-back,
+      .arrow-forward {
+        display: none;
+      }
+
+      @media (max-width: 431px) and (max-height: 933px) {
+        .cross-icon {
+          width: 40px;
+          height: 40px;
+          top: 20px;
+          left: 20px;
+        }
+
+        .title-apology {
+          top: 103px;
+          left: 67px;
+          font-size: 40px;
+          text-align: left;
+        }
+
+        .mobile-break {
+          display: block;
+        }
+
+        .title-available {
+          top: 187px;
+          left: 36px;
+          width: 92%;
+          font-size: 61px;
+        }
+
+        .title-towork {
+          top: 253px;
+          left: 59px;
+          width: 86%;
+          font-size: 61px;
+        }
+
+        .brace-left {
+          margin-right: 62px;
+        }
+
+        .title-time {
+          top: 273px;
+          left: 322px;
+          font-size: 15px;
+          width: 75px;
+        }
+
+        .title-brief {
+          line-height: 50px;
+          top: 328px;
+          left: 73px;
+          font-size: 38px;
+          text-align: left;
+        }
+        .cta-button {
+          all: unset;
+          position: absolute;
+          bottom: 187px;
+          left: 54%;
+          transform: translateX(-50%);
+          font-family: "Inter", sans-serif;
+          font-weight: 400;
+          font-size: 117px;
+          line-height: 100%;
+          letter-spacing: 1px;
+          text-decoration: underline;
+          text-decoration-style: solid;
+          text-underline-offset: 0.1em;
+          text-decoration-thickness: 6%;
+          text-decoration-skip-ink: auto;
+          color: #a0e391;
+          padding: 0.5rem 1rem;
+          text-align: left;
+        }
+
+        .bar {
+          bottom: 101px;
+          left: 36%;
+          transform: translateX(-50%);
+          width: 160px;
+          height: 10px;
+        }
+
+        .dot {
+          height: 9px;
+          left: calc(50% - 70px);
+        }
+
+        .footer-text {
+          bottom: 23px;
+          left: 244px;
+          transform: translateX(-50%);
+          font-size: 36px;
+          width: 364px;
+        }
+
+        .description {
+          bottom: -120px;
+          left: 81px;
+          font-size: 23px;
+          width: 347px;
+          height: 130px;
+        }
+
+        .download-button {
+          display: block;
+          position: fixed;
+          z-index: 15;
+          top: 854px;
+          left: 188px;
+          width: 210px;
+          height: 43px;
+          border: none;
+          border-radius: 20px;
+          background-color: #1b1414;
+          font-family: "Inter", sans-serif;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 100%;
+          letter-spacing: 0;
+          color: #ffffff;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.3s ease;
+        }
+        .download-button:hover {
+          background-color: #393030;
+        }
+
+        .arrow-back,
+        .arrow-forward {
+          position: fixed;
+          display: block;
+          width: 45px;
+          height: 45px;
+          top: 854px;
+          background-color: #d9d9d9;
+          border: none;
+          border-radius: 32px;
+          font-size: 24px;
+          line-height: 1;
+          color: #395039;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+        }
+        .arrow-back img,
+        .arrow-forward img {
+          width: 20px; /* adjust icon size as needed */
+          height: auto;
+          padding-top: 5px;
+          padding-right: 2px;
+        }
+
+        /* back arrow: flip the icon */
+        .arrow-forward img {
+          padding-bottom: 10px;
+
+          margin-left: 3px;
+          transform: rotate(180deg);
+        }
+
+        /* horizontal positions */
+        .arrow-back {
+          left: 70px;
+        }
+        .arrow-forward {
+          left: 130px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cross-icon">
+      <div class="cross-css"></div>
+    </div>
+
+    <div class="bar">
+      <div class="dot"></div>
+    </div>
+
+    <div class="container">
+      <div class="title-apology">
+        hey<br class="mobile-break" />
+        apologies, I am
+      </div>
+      <div class="title-available">not available</div>
+      <div class="title-towork">
+        to work
+        <span class="braces"
+          ><span class="brace-left">{</span>
+          <span class="brace-right">}</span></span
+        >
+      </div>
+      <div class="title-time">
+        for the <br />
+        time being
+      </div>
+
+      <div class="title-brief">but I would love to know the brief anyway</div>
+
+      <a href="#" class="cta-button">get in touch</a>
+
+      <p class="footer-text">
+        <span class="footer-right">everything </span>
+        <span class="footer-left">/ nothing</span>
+      </p>
+      <p class="description">
+        the designer is always happy <br />
+        to serve as long as given some <br />
+        space and time
+      </p>
+    </div>
+    <button class="arrow-back">
+      <img src="../assets/images/arrow.png" alt="back arrow" />
+    </button>
+    <button class="arrow-forward">
+      <img src="../assets/images/arrow.png" alt="forward arrow" />
+    </button>
+    <button class="download-button">download resume</button>
+  </body>
+</html>

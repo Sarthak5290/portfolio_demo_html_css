@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Services</title>
+    <style>
+      body {
+        background-color: #efe9f5;
+        margin: 0;
+        padding: 40px;
+        font-family: "Inter", sans-serif;
+      }
+
+      .container {
+        margin-top: 200px;
+        margin-left: 120px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .text-group {
+        max-width: 800px;
+        position: relative;
+      }
+
+      .text-line {
+        font-weight: 300;
+        font-size: 55px;
+        line-height: 55px;
+        letter-spacing: 0%;
+        color: #cccccc;
+        margin-bottom: 20px;
+      }
+
+      .highlight {
+        color: #2f2f2f;
+      }
+
+      .side-text {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 70%;
+        letter-spacing: 0%;
+        color: #404040;
+        white-space: pre-line;
+        max-width: 300px;
+        position: absolute;
+        right: -320px;
+        top: 76px;
+      }
+
+      /* Bottom-left airplane image */
+      .cursor-pointer {
+        position: absolute;
+        top: 550px;
+        left: 30px;
+        z-index: 3;
+      }
+
+      /* Top-right airplane image */
+      .cursor-pointer-2 {
+        position: absolute;
+        top: -220px;
+        left: 550px;
+        z-index: 3;
+        transform: rotate(1deg);
+      }
+
+      /* Bottom-right airplane image (new) */
+      .cursor-pointer-3 {
+        position: absolute;
+        bottom: -180px;
+        right: 380px;
+        z-index: 3;
+        transform: rotate(-1deg);
+      }
+      .pointer-image-3 {
+        width: 524px;
+        height: auto;
+      }
+      .pointer-image-2 {
+        width: 734px;
+        height: auto;
+      }
+
+      .pointer-image {
+        width: 350px;
+        height: auto;
+      }
+
+      /* Decorative dot */
+      .green-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #eaffe5;
+        position: absolute;
+        top: 570px;
+        left: 420px;
+        border-radius: 4px;
+        box-shadow: 0px 4px 4px 0px #0000001a;
+        z-index: 2;
+      }
+
+      /* Text below dot */
+      .dot-label {
+        position: absolute;
+        top: 600px;
+        left: 410px;
+        padding: 6px 10px;
+        border-radius: 4px;
+        display: inline-block;
+        color: #707070;
+        z-index: 2;
+        font-family: Inter, sans-serif;
+        line-height: 100%;
+        font-size: 28px;
+      }
+
+      .dot-label .light-italic {
+        font-weight: 100;
+        font-style: italic;
+        margin-right: 4px;
+      }
+
+      .dot-label .regular {
+        font-weight: 400;
+      }
+
+      /* Subtext below "the view" */
+      .dot-subtext {
+        position: absolute;
+        top: 635px;
+        left: 410px;
+        padding: 6px 10px;
+        border-radius: 4px;
+        color: #707070;
+        font-family: Inter, sans-serif;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 65%;
+        letter-spacing: 0%;
+        white-space: pre-line;
+        z-index: 2;
+      }
+      .cross-icon {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        z-index: 5;
+      }
+
+      .cross-css {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .cross-css::before,
+      .cross-css::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 2px;
+        background-color: #979797; /* Set your desired color */
+        transform-origin: center;
+      }
+
+      .cross-css::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      .cross-css::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+
+      .download-button {
+        display: none;
+      }
+
+      .arrow-back,
+      .arrow-forward {
+        display: none;
+      }
+
+      @media (max-width: 431px) and (max-height: 933px) {
+        html,
+        body {
+          overflow-x: hidden;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          margin: 0;
+          padding: 0;
+        }
+
+        * {
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+
+        body {
+          padding: 20px;
+          margin: 0;
+          font-family: "Inter", sans-serif;
+        }
+
+        .container {
+          margin-top: 100px;
+          margin-left: 0;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+
+        .text-group {
+          max-width: 100%;
+          width: 100%;
+        }
+
+        .text-line {
+          display: none;
+        }
+
+        .text-line.highlight {
+          display: block;
+          font-size: 62px;
+          line-height: 62px;
+          position: relative;
+          top: -195px;
+          left: 30px;
+          width: 90%;
+          word-wrap: break-word;
+          margin-right: 0;
+        }
+
+        .side-text {
+          position: relative;
+          margin-top: 20px;
+          font-size: 14px;
+          line-height: 67%;
+          max-width: 100%;
+          top: 137px;
+          left: 35px;
+        }
+
+        .pointer-image-2 {
+          max-width: 138%;
+          height: auto;
+        }
+
+        .cursor-pointer-2 {
+          top: -110px;
+          left: 58%;
+          width: 98%;
+          overflow: hidden;
+        }
+
+        .cursor-pointer {
+          top: 428px;
+          left: -59px;
+          width: 90%;
+          overflow: hidden;
+        }
+
+        .cursor-pointer-3 {
+          display: none;
+        }
+
+        .green-dot {
+          top: auto;
+          bottom: 240px;
+          left: 58px;
+        }
+
+        .dot-label {
+          top: auto;
+          bottom: 168px;
+          left: 43px;
+          font-size: 35px;
+        }
+
+        .dot-subtext {
+          top: auto;
+          bottom: 95px;
+          left: 45px;
+          font-size: 21px;
+          line-height: 56%;
+        }
+
+        .cross-icon {
+          width: 40px;
+          height: 40px;
+          top: 20px;
+          left: 15px;
+        }
+
+        .download-button {
+          display: block;
+          position: fixed;
+          z-index: 15;
+          top: 854px;
+          left: 188px;
+          width: 210px;
+          height: 43px;
+          border: none;
+          border-radius: 20px;
+          background-color: #1b1414;
+          font-family: "Inter", sans-serif;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 100%;
+          letter-spacing: 0;
+          color: #ffffff;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.3s ease;
+        }
+        .download-button:hover {
+          background-color: #393030;
+        }
+
+        .arrow-back,
+        .arrow-forward {
+          position: fixed;
+          display: block;
+          width: 45px;
+          height: 45px;
+          top: 854px;
+          background-color: #d9d9d9;
+          border: none;
+          border-radius: 32px;
+          font-size: 24px;
+          line-height: 1;
+          color: #395039;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+        }
+        .arrow-back img,
+        .arrow-forward img {
+          width: 20px; /* adjust icon size as needed */
+          height: auto;
+          padding-top: 5px;
+          padding-right: 2px;
+        }
+
+        /* back arrow: flip the icon */
+        .arrow-forward img {
+          padding-bottom: 10px;
+
+          margin-left: 3px;
+          transform: rotate(180deg);
+        }
+
+        /* horizontal positions */
+        .arrow-back {
+          left: 70px;
+        }
+        .arrow-forward {
+          left: 130px;
+        }
+
+        
+      }
+    </style>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="cross-icon">
+      <div class="cross-css"></div>
+    </div>
+    <!-- Bottom-left airplane image -->
+    <div class="cursor-pointer">
+      <img
+        src="../assets/images/airoplane.png"
+        alt="Bottom left pointer"
+        class="pointer-image"
+      />
+    </div>
+
+    <!-- Top-right airplane image -->
+    <div class="cursor-pointer-2">
+      <img
+        src="../assets/images/airoplane.png"
+        alt="Top right pointer"
+        class="pointer-image-2"
+      />
+    </div>
+
+    <!-- Bottom-right airplane image (new) -->
+    <div class="cursor-pointer-3">
+      <img
+        src="../assets/images/airoplane.png"
+        alt="Bottom right pointer"
+        class="pointer-image-3"
+      />
+    </div>
+
+    <!-- Decorative green dot -->
+    <div class="green-dot"></div>
+
+    <!-- Text below the dot -->
+    <div class="dot-label">
+      <span class="light-italic">the</span>
+      <span class="regular">view</span>
+    </div>
+
+    <!-- Subtext below "the view" -->
+    <div class="dot-subtext">
+      what services<br />
+      can the designer<br />
+      offer
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+      <div class="text-group">
+        <div class="text-line">web design & UI/UX</div>
+        <div class="text-line">graphic design & illustrations</div>
+        <div class="side-text">
+          Though I have always been<br />
+          a designer who's expertise mostly lies<br />
+          in the digital medium, I am quite<br />
+          confident I can pull off a unique and <br />
+          interesting packaging design or <br />
+          any print requirement for your brand or<br />
+          your product.
+        </div>
+        <div class="text-line">brand identity</div>
+        <div class="text-line highlight">print & packaging design</div>
+      </div>
+    </div>
+    <button class="arrow-back">
+      <img src="../assets/images/arrow.png" alt="back arrow" />
+    </button>
+    <button class="arrow-forward">
+      <img src="../assets/images/arrow.png" alt="forward arrow" />
+    </button>
+    <button class="download-button">download resume</button>
+  </body>
+</html>
